@@ -27,7 +27,9 @@
   "author": "atnyooehlenberg",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "jose":"^4.5.0",
+    "unix-timestamp":"^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.12",
