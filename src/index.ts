@@ -3,15 +3,15 @@ import * as jose from 'jose';
 import * as timestamp from 'unix-timestamp';
 
 async function run() {
-  const secret: string = core.getInput('secret');
-  const issuer: string = core.getInput('issuer');
-  const audience: string = core.getInput('audience');
+  const secret: string = core.getInput('secret') || 'empty';
+  const issuer: string = core.getInput('issuer') || 'issuer';
+  const audience: string = core.getInput('audience') || 'audience';
   const validDays: number = +core.getInput('validDays') || 14;
   const offline: string = core.getInput('offline') || 'NO';
-  const contact: string = core.getInput('contact');
+  const contact: string = core.getInput('contact') || 'dummy';
   const devenv: string = core.getInput('devenv') || 'NO';
 
-  try {
+  try {      
     var payloadData = {
       iss: issuer,
       aud: audience,
@@ -25,13 +25,14 @@ async function run() {
     let utf8Encode = new TextEncoder();
 
     const jwt = await new jose.SignJWT(payloadData)
-      .setProtectedHeader({alg: 'HS256'})
+      .setProtectedHeader({typ: 'JWT', alg: 'HS256'})
       .setIssuedAt()
       .setExpirationTime(timestamp.fromDate(expDate))
       .sign(utf8Encode.encode(secret));
 
     console.log(jwt);
     core.setOutput("token", jwt);
+    return jwt;
 
   } catch (err) {
     console.error(

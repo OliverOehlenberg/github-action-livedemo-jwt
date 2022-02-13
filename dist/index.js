@@ -41,12 +41,12 @@ const timestamp = __importStar(__nccwpck_require__(5650));
 function run() {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        const secret = core.getInput('secret');
-        const issuer = core.getInput('issuer');
-        const audience = core.getInput('audience');
+        const secret = core.getInput('secret') || 'empty';
+        const issuer = core.getInput('issuer') || 'issuer';
+        const audience = core.getInput('audience') || 'audience';
         const validDays = +core.getInput('validDays') || 14;
         const offline = core.getInput('offline') || 'NO';
-        const contact = core.getInput('contact');
+        const contact = core.getInput('contact') || 'dummy';
         const devenv = core.getInput('devenv') || 'NO';
         try {
             var payloadData = {
@@ -60,12 +60,13 @@ function run() {
             expDate.setDate(expDate.getDate() + validDays);
             let utf8Encode = new TextEncoder();
             const jwt = yield new jose.SignJWT(payloadData)
-                .setProtectedHeader({ alg: 'HS256' })
+                .setProtectedHeader({ typ: 'JWT', alg: 'HS256' })
                 .setIssuedAt()
                 .setExpirationTime(timestamp.fromDate(expDate))
                 .sign(utf8Encode.encode(secret));
             console.log(jwt);
             core.setOutput("token", jwt);
+            return jwt;
         }
         catch (err) {
             console.error(`⚠️ An error happened executing JWT signing...`, (_a = err === null || err === void 0 ? void 0 : err.message) !== null && _a !== void 0 ? _a : err);
