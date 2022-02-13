@@ -1,0 +1,20 @@
+name: Test JWT Token Generation
+
+on: 
+  [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        uses: atnyooehlenberg/github-action-livedemo-jwt@release
+        with:
+          scret: '123456'
+          issuer: 'jwt@testsystem'
+          azduence: 'jwt@testsystem'
+          validDays: 7
+          offline: 'YES'
+          contact: 'test@testsystem.test'
+          devenv: 'NO'        
