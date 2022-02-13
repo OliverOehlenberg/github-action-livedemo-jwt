@@ -65,6 +65,7 @@ function run() {
                 .setExpirationTime(timestamp.fromDate(expDate))
                 .sign(utf8Encode.encode(secret));
             console.log(jwt);
+            core.warning("Token: " + jwt);
         }
         catch (err) {
             console.error(`⚠️ An error happened executing JWT signing...`, (_a = err === null || err === void 0 ? void 0 : err.message) !== null && _a !== void 0 ? _a : err);
