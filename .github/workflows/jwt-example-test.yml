@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Generate Token
         id: jwt
-        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.5
+        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.6
         with:
           secret: '123456'
           issuer: 'jwt@testsystem'
