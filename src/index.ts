@@ -31,7 +31,8 @@ async function run() {
       .sign(utf8Encode.encode(secret));
 
     console.log(jwt);
-    core.warning("Token: " + jwt);
+    core.setOutput("token", jwt);
+
   } catch (err) {
     console.error(
       `⚠️ An error happened executing JWT signing...`,

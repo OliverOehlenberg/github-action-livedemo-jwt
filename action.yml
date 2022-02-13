@@ -24,6 +24,9 @@ inputs:
   devenv:
     description: "Metadata Development Environment Flag"
     default: "NO"  
+output:
+  token:
+    description: 'Generated JWT Token'
 runs:
   using: "node12"
   main: "dist/index.js"

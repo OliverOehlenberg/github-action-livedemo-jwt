@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Test
-        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.3
+        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.4
         with:
           secret: '123456'
           issuer: 'jwt@testsystem'
