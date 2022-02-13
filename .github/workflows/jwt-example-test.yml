@@ -21,4 +21,4 @@ jobs:
           devenv: 'NO'        
 
       - name: Display Token
-        run: echo "${{ steps.jwt.outputs.token }}"
+        run: echo "https://test?key=${{ steps.jwt.outputs.token }}"
