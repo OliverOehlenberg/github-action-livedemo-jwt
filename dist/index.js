@@ -64,8 +64,9 @@ function run() {
                 .setIssuedAt()
                 .setExpirationTime(timestamp.fromDate(expDate))
                 .sign(utf8Encode.encode(secret));
+            console.log('Key generated.');
             console.log(jwt);
-            core.setOutput("token", jwt);
+            core.setOutput("t", jwt);
             return jwt;
         }
         catch (err) {
