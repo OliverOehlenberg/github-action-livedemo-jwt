@@ -9,6 +9,7 @@ jobs:
 
     steps:
       - name: Test
+        id: jwt
         uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.4
         with:
           secret: '123456'
@@ -18,3 +19,6 @@ jobs:
           offline: 'YES'
           contact: 'test@testsystem.test'
           devenv: 'NO'        
+
+      - name: Get Token
+        run: echo "${{ steps.jwt.outputs.token }}"
