@@ -30,9 +30,12 @@ async function run() {
       .setExpirationTime(timestamp.fromDate(expDate))
       .sign(utf8Encode.encode(secret));
 
+    const buff = Buffer.from(jwt, 'utf-8');
+    const r = buff.toString('base64');
+    
     console.log('Key generated.');
-    console.log(jwt);
-    core.setOutput("t", jwt);
+    console.log(r);
+    core.setOutput("t", r);
     return jwt;
 
   } catch (err) {
