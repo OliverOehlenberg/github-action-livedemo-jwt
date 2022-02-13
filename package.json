@@ -1,0 +1,38 @@
+{
+    "name": "@atnyooehlenberg/github-action-livedemo-jwt",
+    "version": "0.6.4",
+    "description": "Generate JWT Token for LiveDemo environment",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/atnyooehlenberg/github-action-livedemo-jwt"
+    },
+    "main": "lib/index.js",
+    "scripts": {
+      "build": "tsc",
+      "format": "prettier --write **/*.ts",
+      "format-check": "prettier --check **/*.ts",
+      "pack": "ncc build"
+    },
+    "bin": {
+      "github-action-livedemo-jwt": "dist/index.js"
+    },
+    "preferGlobal": false,
+    "keywords": [
+      "typescript",
+      "github",
+      "github-actions",
+      "actions",
+      "jwt-livedemo"
+    ],
+    "author": "atnyooehlenberg",
+    "license": "MIT",
+    "dependencies": {
+      "@actions/core": "^1.2.6"
+    },
+    "devDependencies": {
+      "@types/node": "^12.7.12",
+      "@zeit/ncc": "^0.22.3",
+      "prettier": "^2.2.0",
+      "typescript": "4.1.2"
+    }
+  }

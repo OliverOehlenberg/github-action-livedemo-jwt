@@ -1,0 +1,32 @@
+name: Run JWT Generation
+author: atnyooehlenberg
+description: Github Action to generate JWT token for livedemo environment
+inputs:
+  secret:
+    description: "JWT Secret"
+    required: false
+  issuer:
+    description: "JWT Issuer"
+    required: false    
+  audience:
+    description: "JWT Audience"
+    required: false
+  validDays:
+    description: "Token expire after defined days"
+    required: true
+    default: "14"
+  offline:
+    description: "Metadata Offline Flag"    
+    default: "NO"
+  contact:
+    description: "Metadata Contact Flag"
+    required: false
+  devenv:
+    description: "Metadata Development Environment Flag"
+    default: "NO"  
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  color: "purple"
+  icon: "lock"
