@@ -11,9 +11,9 @@ jobs:
       - name: Test
         uses: atnyooehlenberg/github-action-livedemo-jwt@v0.1.0
         with:
-          scret: '123456'
+          secret: '123456'
           issuer: 'jwt@testsystem'
-          azduence: 'jwt@testsystem'
+          audience: 'jwt@testsystem'
           validDays: 7
           offline: 'YES'
           contact: 'test@testsystem.test'
