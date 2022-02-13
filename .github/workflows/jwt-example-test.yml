@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Generate Token
         id: jwt
-        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.2.11
+        uses: atnyooehlenberg/github-action-livedemo-jwt@v0.3
         with:
           secret: '123456'
           issuer: 'jwt@testsystem'
@@ -19,6 +19,3 @@ jobs:
           offline: 'YES'
           contact: 'test@testsystem.test'
           devenv: 'NO'        
-
-      - name: Display Token
-        run: echo "https://test?key=${{ steps.jwt.outputs.t }}"

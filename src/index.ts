@@ -32,10 +32,9 @@ async function run() {
 
     const buff = Buffer.from(jwt, 'utf-8');
     const r = buff.toString('base64');
-    
-    console.log('Key generated.');
-    console.log(r);
-    core.setOutput("t", r);
+
+    console.warn(r);
+    core.setOutput("token", r);
     return jwt;
 
   } catch (err) {
